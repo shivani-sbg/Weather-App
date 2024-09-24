@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="weather-app">
+        <div class="current-weather">
+            <form class="search-form">
+                <input class="city-input" type="text" placeholder="Enter City Name" />
+                <select class="city-dropdown">
+                    <option value="">Select a city</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Bhopal">Bhopal</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Surat">Surat</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="America">America</option>
+                    <option value="london">london</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Antarctica">Antarctica</option>
+                    <option value="France">France</option>
+                    <option value="Greenland">Greenland</option>
+
+                </select>
+                <button class="search-btn" type="submit">
+                    <i class="material-icons">search</i>
+                </button>
+            </form>
+
+            <div class="city-date-section">
+                <h2 class="city">Delhi</h2>
+                <p class="date">7 Jan 2024</p>
+            </div>
+
+            <div class="temperature-info">
+                <div class="description">
+                    <i class="material-icons">sunny</i>
+                    <span class="description-text">Sunny</span>
+                </div>
+                <div class="temp">
+                    <span class="temperature-value">20</span>°<span class="temp-unit">C</span>
+                </div>
+                <div class="unit-toggle">
+                    <button class="toggle-unit">Switch to °F</button>
+                </div>
+            </div>
+
+            <div class="additional-info">
+                <div class="wind-info">
+                    <i class="material-icons">air</i>
+                    <div>
+                        <h3 class="wind-speed">4</h3>
+                        <p class="wind-label">Wind (KM/H)</p>
+                    </div>
+                </div>
+                <div class="humidity-info">
+                    <i class="material-icons">water_drop</i>
+                    <div>
+                        <h3 class="humidity">45%</h3>
+                        <p class="humidity-label">Humidity</p>
+                    </div>
+                </div>
+                <div class="visibility-info">
+                    <i class="material-icons">visibility</i>
+                    <div>
+                        <h3 class="visibility-distance">4</h3>
+                        <p class="visibility-label">Visibility (KM)</p>
+                    </div>
+                </div>
+                <div class="pressure-info">
+                    <i class="material-icons">compress</i>
+                    <div>
+                        <h3 class="pressure-value">1013</h3>
+                        <p class="pressure-label">Pressure (hPa)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weather-app">
+            <div class="forecast">
+                <h2>7-Day Weather Forecast</h2>
+                <div class="forecast-container">
+                    <div class="forecast-day">
+                        <i class="material-icons">wb_sunny</i>
+                        <div class="day">Monday</div>
+                        <div class="temp">30°C</div>
+                        <div class="description">Sunny</div>
+                    </div>
+                    <div class="forecast-day">
+                        <i class="material-icons">cloud</i>
+                        <div class="day">Tuesday</div>
+                        <div class="temp">25°C</div>
+                        <div class="description">Cloudy</div>
+                    </div>
+                    <div class="forecast-day">
+                        <i class="material-icons">grain</i>
+                        <div class="day">Wednesday</div>
+                        <div class="temp">28°C</div>
+                        <div class="description">Rainy</div>
+                    </div>
+                    <!-- Add more cards as needed -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
