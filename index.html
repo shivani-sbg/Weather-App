@@ -16,34 +16,32 @@
     <div class="weather-app">
         <div class="current-weather">
             <form class="search-form">
-                <input class="city-input" type="text" placeholder="Enter City Name" />
-                <select class="city-dropdown">
-                    <option value="">Select a city</option>
-                    <option value="Indore">Indore</option>
-                    <option value="Bhopal">Bhopal</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Jaipur">Jaipur</option>
-                    <option value="Surat">Surat</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Bengaluru">Bengaluru</option>
-                    <option value="Ahmedabad">Ahmedabad</option>
-                    <option value="Kolkata">Kolkata</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Punjab">Punjab</option>
-                    <option value="Chennai">Chennai</option>
-                    <option value="America">America</option>
-                    <option value="london">london</option>
-                    <option value="Egypt">Egypt</option>
-                    <option value="Thailand">Thailand</option>
-                    <option value="Australia">Australia</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Antarctica">Antarctica</option>
-                    <option value="France">France</option>
-                    <option value="Greenland">Greenland</option>
-
-                </select>
+                <input class="city-input" type="text" placeholder="Enter City Name" list="city-list" />
+                <datalist id="city-list">
+                    <option value="Indore"></option>
+                    <option value="Bhopal"></option>
+                    <option value="Mumbai"></option>
+                    <option value="Jaipur"></option>
+                    <option value="Surat"></option>
+                    <option value="Uttarakhand"></option>
+                    <option value="Meghalaya"></option>
+                    <option value="Bengaluru"></option>
+                    <option value="Ahmedabad"></option>
+                    <option value="Kolkata"></option>
+                    <option value="Kerala"></option>
+                    <option value="Goa"></option>
+                    <option value="Punjab"></option>
+                    <option value="Chennai"></option>
+                    <option value="America"></option>
+                    <option value="London"></option>
+                    <option value="Egypt"></option>
+                    <option value="Thailand"></option>
+                    <option value="Australia"></option>
+                    <option value="Canada"></option>
+                    <option value="Antarctica"></option>
+                    <option value="France"></option>
+                    <option value="Greenland"></option>
+                </datalist>
                 <button class="search-btn" type="submit">
                     <i class="material-icons">search</i>
                 </button>
@@ -53,8 +51,6 @@
                 <h2 class="city">CITY</h2>
                 <p class="date">DATE</p>
             </div>
-
-
 
             <div class="sunrise">
                 <i class="material-icons sunrise-icon"></i>
@@ -74,13 +70,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
 
             <div class="temperature-info">
                 <div class="description">
@@ -126,6 +115,7 @@
                 </div>
             </div>
         </div>
+
         <div class="weather-app">
             <div class="forecast">
                 <h2>7-Day Weather Forecast</h2>
@@ -152,7 +142,6 @@
                 </div>
             </div>
         </div>
-
 
     </div>
     <script src="script.js"></script>
