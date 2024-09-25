@@ -348,6 +348,84 @@ input[type="text"] {
     border-radius: 15px;
 }
 
+.sunrise,
+.sunset {
+    display: flex;
+    align-items: center;
+    /* Vertically center the icon and text */
+    justify-content: center;
+    /* Horizontally center the icon and text */
+    margin: 10px 0;
+    /* Optional: Add some spacing around */
+}
+
+.sunrise i,
+.sunset i {
+    font-size: 24px;
+    /* Adjust icon size */
+    margin-right: 8px;
+    /* Add some space between icon and text */
+}
+
+.sunrise-time,
+.sunset-time {
+    font-size: 16px;
+    /* Adjust the size of the text */
+}
+
+
+.uv-index-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.uv-gauge {
+    position: relative;
+    width: 150px;
+    height: 75px;
+    overflow: hidden;
+    border-radius: 150px 150px 0 0;
+    background: #e0e0e0;
+}
+
+.uv-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(red 0deg,
+            orange 45deg,
+            yellow 90deg,
+            green 135deg,
+            lightgreen 180deg);
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    /* This will be updated dynamically */
+}
+
+.uv-info {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.uv-index-value {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.uv-risk-label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+}
+
+
 .temperature-info {
     margin-top: 20px;
     display: flex;

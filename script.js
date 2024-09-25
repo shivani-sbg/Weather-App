@@ -1,5 +1,6 @@
 
 
+
 const apiKey = '64f60853740a1ee3ba20d0fb595c97d5'; // Replace with your OpenWeatherMap API key
 
 let isCelsius = true;
@@ -40,11 +41,42 @@ async function fetchForecast(lat, lon) {
             throw new Error("Unable to fetch forecast data");
         }
         const forecastData = await response.json();
+
+        const uvIndex = forecastData.daily[0].uvi; // Get UV index for the current day
+
         updateForecastUI(forecastData.daily);
+        updateUVIndex(uvIndex); // Call function to update UV index gauge
     } catch (error) {
         console.error(error);
     }
 }
+
+function updateUVIndex(uvIndex) {
+    const uvIndexElement = document.querySelector('.uv-index-value');
+    const uvRiskLabel = document.querySelector('.uv-risk-label');
+    
+    uvIndexElement.textContent = uvIndex;
+    const uvRisk = getUVRiskLevel(uvIndex);
+    uvRiskLabel.textContent = uvRisk;
+
+    updateUVCircle(uvIndex); // Update the semi-circle gauge based on UV index
+}
+
+function getUVRiskLevel(uvIndex) {
+    if (uvIndex < 3) return 'Low';
+    if (uvIndex < 6) return 'Moderate';
+    if (uvIndex < 8) return 'High';
+    if (uvIndex < 11) return 'Very High';
+    return 'Extreme';
+}
+
+// Update the semi-circle UV gauge based on the index value
+function updateUVCircle(uvIndex) {
+    const uvCircle = document.querySelector('.uv-circle');
+    const uvAngle = Math.min((uvIndex / 11) * 180, 180); // Calculate angle, max 180 degrees
+    uvCircle.style.transform = `rotate(${uvAngle}deg)`; // Rotate semi-circle based on UV index
+}
+
 
 function updateWeatherUI(data) {
     const cityElement = document.querySelector(".city");
@@ -56,6 +88,12 @@ function updateWeatherUI(data) {
     const pressureElement = document.querySelector(".pressure-value");
     const descriptionText = document.querySelector(".description-text");
     const dateElement = document.querySelector(".date");
+    
+    // New elements for sunrise and sunset
+    const sunriseElement = document.querySelector(".sunrise-time");
+    const sunsetElement = document.querySelector(".sunset-time");
+    const sunriseIcon = document.querySelector(".sunrise-icon");
+    const sunsetIcon = document.querySelector(".sunset-icon");
 
     cityElement.textContent = data.name;
     updateTemperatureDisplay();
@@ -65,12 +103,24 @@ function updateWeatherUI(data) {
     pressureElement.textContent = `${currentPressure} hPa`;
     descriptionText.textContent = data.weather[0].description;
 
+    // Format and display sunrise and sunset times
+    const sunriseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    sunriseElement.textContent = `Sunrise: ${sunriseTime}`;
+    sunsetElement.textContent = `Sunset: ${sunsetTime}`;
+
+    // Set icons for sunrise and sunset
+    sunriseIcon.innerHTML = `<i class="material-icons">wb_sunny</i>`;
+    sunsetIcon.innerHTML = `<i class="material-icons">nights_stay</i>`;
+
     const currentDate = new Date();
     dateElement.textContent = currentDate.toDateString();
     const weatherIconName = getWeatherIconName(data.weather[0].main);
     const descriptionIcon = document.querySelector(".description i");
     descriptionIcon.innerHTML = `<i class="material-icons">${weatherIconName}</i>`;
 }
+
 
 function updateForecastUI(daily) {
     const forecastContainer = document.querySelector(".forecast-container");
@@ -178,6 +228,8 @@ function getWeatherIconName(weatherCondition) {
         Smoke: "cloud",
         Haze: "cloud",
         Fog: "cloud",
+        Sunrise: "wb_sunny",
+        Sunset: "nights_stay"
     };
 
     return iconMap[weatherCondition] || "help";
