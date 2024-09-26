@@ -17,39 +17,33 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #ffffff;
-    /* Background color */
 }
 
 .weather-app {
     width: 1400px;
-    /* Set width to 1400px */
     display: flex;
-    /* Use flexbox for layout */
     justify-content: space-between;
-    /* Space between two sections */
     padding: 15px;
-    /* Padding around the app */
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background-color: #f9f9f9;
-    /* Background color for the app */
+
 }
 
 .current-weather {
     display: flex;
     flex-direction: column;
     flex: 1;
-    /* Take available space */
+
     margin-right: 20px;
-    /* Space between sections */
+
 }
 
 .additional-info {
     display: flex;
     flex-direction: column;
-    /* Vertical layout */
+
     flex: 1;
-    /* Take available space */
 }
 
 .search-form {
@@ -57,7 +51,7 @@ body {
     display: flex;
     margin-bottom: 10px;
     width: 400px;
-    /* Space between search form and other elements */
+
 }
 
 .city-input {
@@ -65,20 +59,15 @@ body {
     padding: 5px;
     margin-right: 5px;
     font-size: 12px;
-    /* Smaller font size */
     border: 1px solid #ddd;
     width: 350px;
 }
 
 .search-btn {
     padding: 5px 8px;
-    /* Reduced padding */
     font-size: 12px;
-    /* Smaller font size */
     background-color: #007bff;
-    /* Bootstrap primary color */
     color: white;
-    /* White text for visibility */
     border: none;
     border-radius: 4px;
 }
@@ -86,7 +75,6 @@ body {
 .city-date-section {
     text-align: center;
     margin-bottom: 8px;
-    /* Reduced margin */
 }
 
 .sunrise-sunset {
@@ -94,10 +82,8 @@ body {
     justify-content: space-between;
     width: 100%;
     margin: 8px 0;
-    /* Reduced margin */
 }
 
-/* UV Index Styles */
 .uv-index-container {
     display: flex;
     flex-direction: column;
@@ -117,7 +103,6 @@ body {
 .uv-circle {
     position: absolute;
     bottom: 0;
-    /* Position it at the bottom of the gauge */
     left: 0;
     width: 100%;
     height: 100%;
@@ -128,14 +113,12 @@ body {
             lightgreen 180deg);
     transform-origin: bottom center;
     transition: transform 0.5s ease;
-    /* Smooth transition when updating */
 }
 
 .uv-info {
     position: absolute;
     top: 5px;
     bottom: 15px;
-    /* Adjusted position for visibility */
     width: 100%;
     text-align: center;
     font-size: 18px;
@@ -175,63 +158,45 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-    /* Added margin for spacing */
 }
 
 .info-cards {
     display: grid;
-    /* Use grid for 2x2 layout */
     grid-template-columns: repeat(2, 1fr);
-    /* 2 columns */
     gap: 10px;
-    /* Gap between cards */
     margin-top: 10px;
-    /* Space from above */
 }
 
 .info-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px;
-    /* Padding inside cards */
     display: flex;
-    /* Flex for card layout */
     flex-direction: column;
-    /* Stack items vertically */
     align-items: center;
-    /* Center items horizontally */
     justify-content: center;
-    /* Center items vertically */
     background-color: #ffffff;
-    /* White background for cards */
 }
 
 .info-card i {
     font-size: 24px;
-    /* Icon size */
     margin-bottom: 8px;
-    /* Space between icon and text */
 }
 
 .info-card h3,
 .info-card p {
     text-align: center;
-    /* Center text */
     margin: 0;
-    /* Remove default margin */
 }
 
 .forecast {
     margin-top: 20px;
-    /* Space from top */
 }
 
 .forecast-container {
     display: flex;
-    /* Flex for forecast layout */
     justify-content: space-between;
     flex-wrap: wrap;
-    /* Wrap to next line if necessary */
 }
 
 .forecast-day {
@@ -240,13 +205,9 @@ body {
     border-radius: 5px;
     padding: 5px;
     font-size: 13px;
-    /* Padding inside forecast cards */
     width: calc(14.2857% - 10px);
-    /* 7 cards in a row */
     margin: 5px;
-    /* Space between cards */
     background-color: #ffffff;
-    /* Background color for forecast cards */
     transition: background-color 0.3s;
 }
 
@@ -254,15 +215,11 @@ body {
 
 .forecast-day {
     background-color: #fff;
-    /* Light blue background */
     border-color: #007bff;
-    /* Blue border for emphasis */
 }
 
-/* Optional: Add hover effect */
 .forecast-day:hover {
     background-color: #f7f7f7;
-    /* Slightly darker on hover */
 }
 
 
@@ -271,12 +228,10 @@ body {
 .forecast-day .day {
     font-weight: bold;
     margin-bottom: 2px;
-    /* Reduced margin */
 }
 
 .forecast-day .temp {
     margin-bottom: 2px;
-    /* Reduced margin */
 }
 
 
@@ -285,89 +240,57 @@ body {
 .current-weather {
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
     align-items: center;
-    /* Center items horizontally */
     flex: 1;
-    /* Take available space */
     margin-right: 20px;
-    /* Space between sections */
 }
 
 .search-form {
     display: flex;
     justify-content: center;
-    /* Center the contents of the form */
     margin-bottom: 10px;
-    /* Space below the search form */
     width: 100%;
-    /* Full width of its parent */
     max-width: 350px;
-    /* Limit the width of the form */
 
-    /* White background for contrast */
     border-radius: 8px;
-    /* Rounded corners */
 
     padding: 15px;
-    /* Padding inside the form */
 }
 
 .city-input {
     flex: 1;
-    /* Take available space */
     padding: 10px;
-    /* Padding for input field */
     margin-right: 5px;
-    /* Space between input and button */
     font-size: 14px;
-    /* Font size for better readability */
     border: 1px solid #ccc;
-    /* Light border for input */
     border-radius: 4px;
-    /* Rounded corners */
     transition: border-color 0.3s;
-    /* Smooth transition for focus */
 }
 
 .city-input:focus {
     border-color: #007bff;
-    /* Change border color on focus */
     outline: none;
-    /* Remove default outline */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    /* Shadow on focus */
 }
 
 .search-btn {
     padding: 10px 15px;
-    /* Padding for button */
     font-size: 14px;
-    /* Font size for button */
     background-color: #007bff;
-    /* Primary color for button */
     color: white;
-    /* White text for visibility */
     border: none;
-    /* No border */
     border-radius: 4px;
-    /* Rounded corners */
     cursor: pointer;
-    /* Pointer cursor on hover */
     transition: background-color 0.3s, transform 0.3s;
-    /* Smooth transition */
 }
 
 .search-btn:hover {
     background-color: #0056b3;
-    /* Darker blue on hover */
     transform: translateY(-2px);
-    /* Slight lift effect */
 }
 
 .search-btn:active {
     transform: translateY(1px);
-    /* Pressed effect */
 }
 
 
@@ -385,26 +308,18 @@ body {
 
 .current-weather {
     flex: 0 0 40%;
-    /* 40% width for current weather */
     padding: 20px;
-    /* Add some padding if necessary */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-right: 2px;
-    /* Optional shadow for better appearance */
 }
 
 .additional-info {
     flex: 0 0 60%;
-    /* 60% width for additional info */
     padding: 20px;
-    /* Add some padding if necessary */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* Optional shadow for better appearance */
 }
 
-/* Optional: To ensure the flex items are aligned well */
 .weather-app>div {
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
 }
