@@ -7,373 +7,97 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
 body {
-    background-color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
+
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+    background-color: #ffffff;
+    /* Background color */
 }
 
 .weather-app {
-    background-color: #171717;
-    max-width: 1600px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 15px;
-}
-
-.search-form {
-    display: flex;
-    align-items: center;
-}
-
-input[type="text"] {
-    flex: 1;
-    padding: 20px;
-    border: 2px solid #3498db;
-    border-radius: 15px;
-    font-size: 1rem;
-    height: 3.5rem;
-}
-
-.search-btn {
-    background-color: #3498db;
-    border: none;
-    padding: 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    color: white;
-    margin-left: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.search-btn:hover {
-    background-color: #2980b9;
-}
-
-.city-date-section {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-    color: black;
-}
-
-.city-date-section .city {
-    font-size: 2rem;
-    opacity: 0.9;
-    color: #fff;
-}
-
-.city-date-section .date {
-    background-color: #c3eaf4;
-    padding: 5px 10px;
-    border-radius: 15px;
-}
-
-.temperature-info {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #fff;
-}
-
-.temperature-info .temp {
-    font-size: 6rem;
-    color: #fff;
-}
-
-.temperature-info .description {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.temperature-info .description i {
-    font-size: 1rem;
-    opacity: 0.8;
-}
-
-.temperature-info .description span {
-    font-size: 1rem;
-}
-
-.temperature-info .unit-toggle {
-    margin-top: 15px;
-}
-
-.unit-toggle button {
-    background-color: #3498db;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.unit-toggle button:hover {
-    background-color: #2980b9;
-}
-
-.additional-info {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-}
-
-.wind-info,
-.humidity-info,
-.visibility-info,
-.pressure-info {
-    background-color: #1e1e1e;
-    color: #fff;
-    width: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 15px;
-    border-radius: 15px;
-    padding: 30px 20px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.additional-info .material-icons {
-    font-size: 3rem;
-    opacity: 0.8;
-}
-
-.wind-info div,
-.humidity-info div,
-.visibility-info div,
-.pressure-info div {
-    text-align: center;
-}
-
-.pressure-value {
-    font-size: 1.8rem;
-}
-
-.pressure-label {
-    font-size: 1rem;
-}
-
-.city-dropdown {
-    margin-left: 10px;
-    padding: 15px;
-    border-radius: 15px;
-    border: 2px solid #3498db;
-    font-size: 1rem;
-    height: 3.5rem;
-    background-color: white;
-    cursor: pointer;
-}
-
-@media (max-width: 400px) {
-    .weather-app {
-        padding: 20px;
-    }
-
-    .temperature-info .temp {
-        font-size: 4rem;
-    }
-
-    .additional-info {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .additional-info div {
-        width: 100%;
-        /* Stack info boxes on smaller screens */
-        margin-bottom: 10px;
-    }
-}
-
-
-.forecast {
-    margin-top: 30px;
-    color: #fff;
-}
-
-.forecast-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.forecast-day {
-    background-color: #1e1e1e;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    width: 80px;
-}
-
-.forecast-day i {
-    font-size: 2rem;
-}
-
-.weather-app {
-    background-color: #171717;
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 15px;
+    width: 1400px;
+    /* Set width to 1400px */
     display: flex;
     /* Use flexbox for layout */
-    gap: 20px;
+    justify-content: space-between;
+    /* Space between two sections */
+    padding: 15px;
+    /* Padding around the app */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    /* Background color for the app */
+}
+
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* Take available space */
+    margin-right: 20px;
     /* Space between sections */
 }
 
-.current-weather,
-.forecast-section {
-    background-color: #1e1e1e;
-    /* Background for sections */
-    color: #fff;
-    flex: 1;
-    /* Make both sections take equal width */
-    padding: 20px;
-    border-radius: 15px;
+.additional-info {
     display: flex;
     flex-direction: column;
-    /* Stack contents vertically */
-    justify-content: space-between;
-    /* Equal height by stretching */
-}
-
-/* Keep the rest of your CSS unchanged */
-
-
-.forecast {
-    margin-top: 30px;
-}
-
-.forecast-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.forecast-day {
-    background-color: #1e1e1e;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    width: 80px;
-}
-
-.forecast-day i {
-    font-size: 2rem;
-}
-
-/* Keep the rest of your CSS as it is */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
-}
-
-.weather-app {
-    background-color: #171717;
-    max-width: 1600px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 15px;
+    /* Vertical layout */
+    flex: 1;
+    /* Take available space */
 }
 
 .search-form {
+
     display: flex;
-    align-items: center;
+    margin-bottom: 10px;
+    width: 400px;
+    /* Space between search form and other elements */
 }
 
-input[type="text"] {
+.city-input {
     flex: 1;
-    padding: 20px;
-    border: 2px solid #3498db;
-    border-radius: 15px;
-    font-size: 1rem;
-    height: 3.5rem;
+    padding: 5px;
+    margin-right: 5px;
+    font-size: 12px;
+    /* Smaller font size */
+    border: 1px solid #ddd;
+    width: 350px;
 }
 
 .search-btn {
-    background-color: #3498db;
-    border: none;
-    padding: 15px;
-    border-radius: 15px;
-    cursor: pointer;
+    padding: 5px 8px;
+    /* Reduced padding */
+    font-size: 12px;
+    /* Smaller font size */
+    background-color: #007bff;
+    /* Bootstrap primary color */
     color: white;
-    margin-left: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.search-btn:hover {
-    background-color: #2980b9;
+    /* White text for visibility */
+    border: none;
+    border-radius: 4px;
 }
 
 .city-date-section {
-    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 8px;
+    /* Reduced margin */
+}
+
+.sunrise-sunset {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-    color: black;
+    justify-content: space-between;
+    width: 100%;
+    margin: 8px 0;
+    /* Reduced margin */
 }
 
-.city-date-section .city {
-    font-size: 2rem;
-    opacity: 0.9;
-    color: #fff;
-}
-
-.city-date-section .date {
-    background-color: #c3eaf4;
-    padding: 5px 10px;
-    border-radius: 15px;
-}
-
-.sunrise,
-.sunset {
-    display: flex;
-    align-items: center;
-    /* Vertically center the icon and text */
-    justify-content: center;
-    /* Horizontally center the icon and text */
-    margin: 10px 0;
-    /* Optional: Add some spacing around */
-}
-
-.sunrise i,
-.sunset i {
-    font-size: 24px;
-    /* Adjust icon size */
-    margin-right: 8px;
-    /* Add some space between icon and text */
-}
-
-.sunrise-time,
-.sunset-time {
-    font-size: 16px;
-    /* Adjust the size of the text */
-}
-
-
+/* UV Index Styles */
 .uv-index-container {
     display: flex;
     flex-direction: column;
@@ -392,7 +116,8 @@ input[type="text"] {
 
 .uv-circle {
     position: absolute;
-    top: 0;
+    bottom: 0;
+    /* Position it at the bottom of the gauge */
     left: 0;
     width: 100%;
     height: 100%;
@@ -402,13 +127,15 @@ input[type="text"] {
             green 135deg,
             lightgreen 180deg);
     transform-origin: bottom center;
-    transform: rotate(0deg);
-    /* This will be updated dynamically */
+    transition: transform 0.5s ease;
+    /* Smooth transition when updating */
 }
 
 .uv-info {
     position: absolute;
-    bottom: -20px;
+    top: 5px;
+    bottom: 15px;
+    /* Adjusted position for visibility */
     width: 100%;
     text-align: center;
     font-size: 18px;
@@ -425,42 +152,7 @@ input[type="text"] {
     color: #555;
 }
 
-
-.temperature-info {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #fff;
-}
-
-.temperature-info .temp {
-    font-size: 6rem;
-    color: #fff;
-}
-
-.temperature-info .description {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.temperature-info .description i {
-    font-size: 1rem;
-    opacity: 0.8;
-}
-
-.temperature-info .description span {
-    font-size: 1rem;
-}
-
-.temperature-info .unit-toggle {
-    margin-top: 15px;
-}
-
-.unit-toggle button {
+.toggle-unit {
     background-color: #3498db;
     border: none;
     padding: 10px 20px;
@@ -471,264 +163,248 @@ input[type="text"] {
     transition: background-color 0.3s ease;
 }
 
-.unit-toggle button:hover {
+
+.toggle-unit button:hover {
     background-color: #2980b9;
 }
 
-.additional-info {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-}
 
-.wind-info,
-.humidity-info,
-.visibility-info,
-.pressure-info {
-    background-color: #1e1e1e;
-    color: #fff;
-    width: 150px;
+.temperature-info {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    gap: 15px;
-    border-radius: 15px;
-    padding: 30px 20px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Added margin for spacing */
 }
 
-.additional-info .material-icons {
-    font-size: 3rem;
-    opacity: 0.8;
+.info-cards {
+    display: grid;
+    /* Use grid for 2x2 layout */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns */
+    gap: 10px;
+    /* Gap between cards */
+    margin-top: 10px;
+    /* Space from above */
 }
 
-.wind-info div,
-.humidity-info div,
-.visibility-info div,
-.pressure-info div {
+.info-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    /* Padding inside cards */
+    display: flex;
+    /* Flex for card layout */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    justify-content: center;
+    /* Center items vertically */
+    background-color: #ffffff;
+    /* White background for cards */
+}
+
+.info-card i {
+    font-size: 24px;
+    /* Icon size */
+    margin-bottom: 8px;
+    /* Space between icon and text */
+}
+
+.info-card h3,
+.info-card p {
     text-align: center;
+    /* Center text */
+    margin: 0;
+    /* Remove default margin */
 }
-
-.pressure-value {
-    font-size: 1.8rem;
-}
-
-.pressure-label {
-    font-size: 1rem;
-}
-
-.city-dropdown {
-    margin-left: 10px;
-    padding: 15px;
-    border-radius: 15px;
-    border: 2px solid #3498db;
-    font-size: 1rem;
-    height: 3.5rem;
-    background-color: white;
-    cursor: pointer;
-}
-
-@media (max-width: 400px) {
-    .weather-app {
-        padding: 20px;
-    }
-
-    .temperature-info .temp {
-        font-size: 4rem;
-    }
-
-    .additional-info {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .additional-info div {
-        width: 100%;
-        /* Stack info boxes on smaller screens */
-        margin-bottom: 10px;
-    }
-}
-
 
 .forecast {
-    margin-top: 30px;
-    color: #fff;
+    margin-top: 20px;
+    /* Space from top */
 }
 
 .forecast-container {
     display: flex;
-    justify-content: space-around;
+    /* Flex for forecast layout */
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 10px;
+    /* Wrap to next line if necessary */
 }
 
 .forecast-day {
-    background-color: #1e1e1e;
-    padding: 15px;
-    border-radius: 15px;
     text-align: center;
-    width: 80px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    /* Padding inside forecast cards */
+    width: calc(14.2857% - 10px);
+    /* 7 cards in a row */
+    margin: 5px;
+    /* Space between cards */
+    background-color: #ffffff;
+    /* Background color for forecast cards */
+    transition: background-color 0.3s;
 }
 
-.forecast-day i {
-    font-size: 2rem;
+
+
+.forecast-day {
+    background-color: #fff;
+    /* Light blue background */
+    border-color: #007bff;
+    /* Blue border for emphasis */
 }
 
-.weather-app {
-    background-color: #171717;
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 15px;
+/* Optional: Add hover effect */
+.forecast-day:hover {
+    background-color: #f7f7f7;
+    /* Slightly darker on hover */
+}
+
+
+
+
+.forecast-day .day {
+    font-weight: bold;
+    margin-bottom: 2px;
+    /* Reduced margin */
+}
+
+.forecast-day .temp {
+    margin-bottom: 2px;
+    /* Reduced margin */
+}
+
+
+
+
+.current-weather {
     display: flex;
-    /* Use flexbox for layout */
-    gap: 20px;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    flex: 1;
+    /* Take available space */
+    margin-right: 20px;
     /* Space between sections */
 }
 
-.current-weather,
-.forecast-section {
-    background-color: #1e1e1e;
-    /* Background for sections */
-    color: #fff;
-    flex: 1;
-    /* Make both sections take equal width */
-    padding: 20px;
-    border-radius: 15px;
+.search-form {
     display: flex;
-    flex-direction: column;
-    /* Stack contents vertically */
-    justify-content: space-between;
-    /* Equal height by stretching */
-}
+    justify-content: center;
+    /* Center the contents of the form */
+    margin-bottom: 10px;
+    /* Space below the search form */
+    width: 100%;
+    /* Full width of its parent */
+    max-width: 350px;
+    /* Limit the width of the form */
 
-/* Keep the rest of your CSS unchanged */
+    /* White background for contrast */
+    border-radius: 8px;
+    /* Rounded corners */
 
-
-.forecast {
-    margin-top: 30px;
-}
-
-.forecast-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.forecast-day {
-    background-color: #1e1e1e;
     padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    width: 80px;
+    /* Padding inside the form */
 }
 
-.forecast-day i {
-    font-size: 2rem;
+.city-input {
+    flex: 1;
+    /* Take available space */
+    padding: 10px;
+    /* Padding for input field */
+    margin-right: 5px;
+    /* Space between input and button */
+    font-size: 14px;
+    /* Font size for better readability */
+    border: 1px solid #ccc;
+    /* Light border for input */
+    border-radius: 4px;
+    /* Rounded corners */
+    transition: border-color 0.3s;
+    /* Smooth transition for focus */
 }
 
-/* Keep the rest of your CSS as it is */
-/* Global styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.city-input:focus {
+    border-color: #007bff;
+    /* Change border color on focus */
+    outline: none;
+    /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Shadow on focus */
 }
 
-body {
-    background-color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
+.search-btn {
+    padding: 10px 15px;
+    /* Padding for button */
+    font-size: 14px;
+    /* Font size for button */
+    background-color: #007bff;
+    /* Primary color for button */
+    color: white;
+    /* White text for visibility */
+    border: none;
+    /* No border */
+    border-radius: 4px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Smooth transition */
 }
+
+.search-btn:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect */
+}
+
+.search-btn:active {
+    transform: translateY(1px);
+    /* Pressed effect */
+}
+
+
+
+
+
+
+
+
 
 .weather-app {
-    background-color: #171717;
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 15px;
+    display: flex;
+    width: 100%;
 }
 
-
-/* Individual Forecast Card */
-.forecast-day {
-    background-color: #1e1e1e;
+.current-weather {
+    flex: 0 0 40%;
+    /* 40% width for current weather */
     padding: 20px;
-    border-radius: 15px;
-    width: 150px;
+    /* Add some padding if necessary */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 2px;
+    /* Optional shadow for better appearance */
+}
+
+.additional-info {
+    flex: 0 0 60%;
+    /* 60% width for additional info */
+    padding: 20px;
+    /* Add some padding if necessary */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Optional shadow for better appearance */
+}
+
+/* Optional: To ensure the flex items are aligned well */
+.weather-app>div {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    transition: transform 0.3s ease;
-}
-
-.forecast-day:hover {
-    transform: scale(1.05);
-}
-
-/* Icon inside each card */
-.forecast-day i {
-    font-size: 2.5rem;
-    color: #3498db;
-    margin-bottom: 10px;
-}
-
-/* Day label */
-.forecast-day .day {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-/* Temperature label */
-.forecast-day .temp {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-/* Description label */
-.forecast-day .description {
-    font-size: 1rem;
-    margin-top: 10px;
-    opacity: 0.9;
-}
-
-/* Responsiveness for mobile */
-@media (max-width: 768px) {
-    .forecast-container {
-        justify-content: center;
-    }
-
-    .forecast-day {
-        width: 120px;
-        padding: 15px;
-    }
-
-    .forecast-day i {
-        font-size: 2rem;
-    }
-
-    .forecast-day .temp {
-        font-size: 1.5rem;
-    }
-
-    .forecast-day .day {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 400px) {
-    .forecast-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .forecast-day {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+    /* Stack items vertically */
 }

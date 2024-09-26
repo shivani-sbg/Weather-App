@@ -1,4 +1,6 @@
 
+
+
 const apiKey = '64f60853740a1ee3ba20d0fb595c97d5'; // Replace with your OpenWeatherMap API key
 
 let isCelsius = true;

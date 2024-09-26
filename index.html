@@ -52,24 +52,30 @@
                 <p class="date">DATE</p>
             </div>
 
-            <div class="sunrise">
-                <i class="material-icons sunrise-icon"></i>
-                <div class="sunrise-time"></div>
+            <div class="sunrise-sunset">
+                <div class="sunrise">
+                    <i class="material-icons sunrise-icon"></i>
+                    <div class="sunrise-time"></div>
+                </div>
+                <div class="sunset">
+                    <i class="material-icons sunset-icon"></i>
+                    <div class="sunset-time"></div>
+                </div>
             </div>
-            <div class="sunset">
-                <i class="material-icons sunset-icon"></i>
-                <div class="sunset-time"></div>
-            </div>
+
             <div class="uv-index-container">
                 <div class="uv-label">UV Index</div>
                 <div class="uv-gauge">
-                    <div class="uv-circle"></div>
+                    <div class="uv-circle" style="transform: rotate(0deg);"></div>
                     <div class="uv-info">
-                        <span class="uv-index-value">0</span>
-                        <span class="uv-risk-label">Low</span>
+                        <span class="uv-index-value">7</span> <!-- Example UV index value -->
+                        <span class="uv-risk-label">High</span> <!-- Example risk label -->
                     </div>
                 </div>
             </div>
+
+
+
 
             <div class="temperature-info">
                 <div class="description">
@@ -83,30 +89,32 @@
                     <button class="toggle-unit">Switch to °F</button>
                 </div>
             </div>
+        </div>
 
-            <div class="additional-info">
-                <div class="wind-info">
-                    <i class="material-icons">air</i>
-                    <div>
-                        <h3 class="wind-speed">4</h3>
-                        <p class="wind-label">Wind (KM/H)</p>
-                    </div>
-                </div>
-                <div class="humidity-info">
+        <div class="additional-info">
+            <div class="info-cards" style="padding: 20px;">
+                <div class="info-card humidity-info">
                     <i class="material-icons">water_drop</i>
                     <div>
                         <h3 class="humidity">45%</h3>
                         <p class="humidity-label">Humidity</p>
                     </div>
                 </div>
-                <div class="visibility-info">
+                <div class="info-card visibility-info">
                     <i class="material-icons">visibility</i>
                     <div>
                         <h3 class="visibility-distance">4</h3>
                         <p class="visibility-label">Visibility (KM)</p>
                     </div>
                 </div>
-                <div class="pressure-info">
+                <div class="info-card wind-info">
+                    <i class="material-icons">air</i>
+                    <div>
+                        <h3 class="wind-speed">4</h3>
+                        <p class="wind-label">Wind (KM/H)</p>
+                    </div>
+                </div>
+                <div class="info-card pressure-info">
                     <i class="material-icons">compress</i>
                     <div>
                         <h3 class="pressure-value">1013</h3>
@@ -114,25 +122,23 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="weather-app">
             <div class="forecast">
                 <h2>7-Day Weather Forecast</h2>
                 <div class="forecast-container">
-                    <div class="forecast-day">
+                    <div class="forecast-day" style="width: 200px;">
                         <i class="material-icons">wb_sunny</i>
                         <div class="day">Monday</div>
                         <div class="temp">30°C</div>
                         <div class="description">Sunny</div>
                     </div>
-                    <div class="forecast-day">
+                    <div class="forecast-day" style="width: 200px;">
                         <i class="material-icons">cloud</i>
                         <div class="day">Tuesday</div>
                         <div class="temp">25°C</div>
                         <div class="description">Cloudy</div>
                     </div>
-                    <div class="forecast-day">
+                    <div class="forecast-day" style="width: 200px;">
                         <i class="material-icons">grain</i>
                         <div class="day">Wednesday</div>
                         <div class="temp">28°C</div>
