@@ -239,7 +239,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 5px;
-    font-size: 14px;
+    font-size: 13px;
     /* Padding inside forecast cards */
     width: calc(14.2857% - 10px);
     /* 7 cards in a row */
