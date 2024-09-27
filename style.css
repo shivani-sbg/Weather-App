@@ -170,6 +170,7 @@ body {
 .info-card {
     border: 1px solid #ddd;
     border-radius: 8px;
+    border-color: #007bff;
     padding: 10px;
     display: flex;
     flex-direction: column;
