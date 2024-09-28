@@ -43,7 +43,7 @@ body {
 .additional-info {
     display: flex;
     flex-direction: column;
-
+    border-radius: 10px;
     flex: 1;
 }
 
@@ -375,7 +375,7 @@ body {
     /* Rounded corners */
     padding: 20px;
     /* Padding around content */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
     /* Slight shadow for depth */
 }
 
