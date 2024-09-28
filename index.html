@@ -48,38 +48,13 @@
             </form>
 
             <div class="city-date-section"><br>
-                <h2 class="city">CITY</h2>
+                <h2 class="city" style="font-size: 50px;">CITY</h2>
                 <p class="date">DATE</p>
             </div>
 
-            <div class="sunrise-sunset">
-                <div class="sunrise">
-                    <i class="material-icons sunrise-icon"></i>
-                    <div class="sunrise-time"></div>
-                </div>
-                <div class="sunset">
-                    <i class="material-icons sunset-icon"></i>
-                    <div class="sunset-time"></div>
-                </div>
-            </div>
-
-            <div class="uv-index-container">
-                <div class="uv-label">UV Index</div>
-                <div class="uv-gauge">
-                    <div class="uv-circle" style="transform: rotate(0deg);"></div>
-                    <div class="uv-info">
-                        <span class="uv-index-value">0</span> <!-- Example UV index value -->
-                        <span class="uv-risk-label" style="color: black;">Risk-Label</span> <!-- Example risk label -->
-                    </div>
-                </div>
-            </div><br><br>
-
-
-
-
             <div class="temperature-info">
                 <div class="description">
-                    <i class="material-icons">sunny</i>
+                    <i class="material-icons" style="font-size: 50px;">sunny</i>
                     <span class="description-text">Temp-Description</span>
                 </div>
                 <div class="temp">
@@ -88,65 +63,135 @@
                 <div class="unit-toggle">
                     <button class="toggle-unit">Switch to °F</button>
                 </div>
+            </div><br><br>
+
+
+            <div class="city-image-container" style="height: 20%; width: 50%;">
+                <img id="city-image" src="" alt="City Image" style="width: 100%; height: 100%; display: none;" />
             </div>
+
+
+
+
         </div>
 
-        <div class="additional-info">
-            <div class="info-cards" style="padding: 20px; margin-left: 10px; margin-right: 10px;">
-                <div class="info-card humidity-info">
-                    <i class="material-icons">water_drop</i>
-                    <div>
-                        <h3 class="humidity">0%</h3>
-                        <p class="humidity-label">Humidity</p>
-                    </div>
-                </div>
-                <div class="info-card visibility-info">
-                    <i class="material-icons">visibility</i>
-                    <div>
-                        <h3 class="visibility-distance">0</h3>
-                        <p class="visibility-label">Visibility (KM)</p>
-                    </div>
-                </div>
-                <div class="info-card wind-info">
-                    <i class="material-icons">air</i>
-                    <div>
-                        <h3 class="wind-speed">0</h3>
-                        <p class="wind-label">Wind (KM/H)</p>
-                    </div>
-                </div>
-                <div class="info-card pressure-info">
-                    <i class="material-icons">compress</i>
-                    <div>
-                        <h3 class="pressure-value">0</h3>
-                        <p class="pressure-label">Pressure (hPa)</p>
-                    </div>
-                </div>
-            </div>
+        <div class="additional-info" style="padding-left:60px; padding-right: 60px; ">
+
 
             <div class="forecast"><br><br>
                 <h2>7-Day Weather Forecast</h2>
                 <div class="forecast-container">
-                    <div class="forecast-day" style="width: 230px;">
+                    <div class="forecast-day">
                         <i class="material-icons">wb_sunny</i>
                         <div class="day">Monday</div>
                         <div class="temp">30°C</div>
                         <div class="description">Sunny</div>
+
                     </div>
-                    <div class="forecast-day" style="width: 230px;">
+                    <div class="forecast-day">
                         <i class="material-icons">cloud</i>
                         <div class="day">Tuesday</div>
                         <div class="temp">25°C</div>
                         <div class="description">Cloudy</div>
                     </div>
-                    <div class="forecast-day" style="width: 230px;">
+                    <div class="forecast-day">
                         <i class="material-icons">grain</i>
                         <div class="day">Wednesday</div>
                         <div class="temp">28°C</div>
                         <div class="description">Rainy</div>
                     </div>
+                    <div class="forecast-day">
+                        <i class="material-icons">wb_sunny</i>
+                        <div class="day">Thursday</div>
+                        <div class="temp">28°C</div>
+                        <div class="description">Sunny</div>
+                    </div>
+                    <div class="forecast-day">
+                        <i class="material-icons">cloud</i>
+                        <div class="day">Friday</div>
+                        <div class="temp">28°C</div>
+                        <div class="description">Cloudy</div>
+                    </div>
+                    <div class="forecast-day">
+                        <i class="material-icons">grain</i>
+                        <div class="day">Saturday</div>
+                        <div class="temp">28°C</div>
+                        <div class="description">Rainy</div>
+                    </div>
+                    <div class="forecast-day">
+                        <i class="material-icons">grain</i>
+                        <div class="day">Sundayday</div>
+                        <div class="temp">28°C</div>
+                        <div class="description">Umbrella</div>
+                    </div>
                     <!-- Add more cards as needed -->
                 </div>
+            </div><br><br>
+
+
+
+
+            <h2>Today's Highlights</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="info-card humidity-info">
+                        <i class="material-icons">water_drop</i>
+                        <div>
+                            <h3 class="humidity">0%</h3>
+                            <p class="humidity-label">Humidity</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card visibility-info">
+                        <i class="material-icons">visibility</i>
+                        <div>
+                            <h3 class="visibility-distance">0</h3>
+                            <p class="visibility-label">Visibility (KM)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card wind-info">
+                        <i class="material-icons">air</i>
+                        <div>
+                            <h3 class="wind-speed">0</h3>
+                            <p class="wind-label">Wind (KM/H)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card sun-info">
+                        <i class="material-icons">wb_twilight</i>
+                        <div>
+                            <h3 class="sunrise-time" style="font-size: 20px">Sunrise time <i
+                                    class="material-icons sunrise-icon">wb_sunny</i></h3>
+                            <h3 class="sunset-time" style="font-size: 20px">Sunset time <i
+                                    class="material-icons sunset-icon">nights_stay</i></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card uv-index-info">
+                        <i class="material-icons">wb_sunny</i>
+                        <div>
+                            <h3 class="uv-index-value">0</h3>
+                            <p class="uv-label">UV Index</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card pressure-info">
+                        <i class="material-icons">compress</i>
+                        <div>
+                            <h3 class="pressure-value">0</h3>
+                            <p class="pressure-label">Pressure (hPa)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
         </div>
 
     </div>

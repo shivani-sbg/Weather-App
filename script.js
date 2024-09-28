@@ -49,14 +49,61 @@ async function fetchForecast(lat, lon) {
     }
 }
 
+
+const searchForm = document.querySelector('.search-form');
+const cityInput = document.querySelector('.city-input');
+const cityImage = document.getElementById('city-image');
+
+// Replace with your Unsplash API key
+const unsplashAccessKey = 'XLLahNoy3F5zq8w3Z71Euh1Vgfbd-GgU4MI4ueR1Wa0';
+
+searchForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent form from submitting the usual way
+    const city = cityInput.value.trim(); // Get the city name
+    if (city) {
+        fetchFamousPlaceImage(city); // Fetch image of a famous place
+    }
+});
+
+function fetchFamousPlaceImage(city) {
+    // Query with landmark or famous place keywords
+    fetch(`https://api.unsplash.com/search/photos?query=${city}+landmark,famous+place&client_id=${unsplashAccessKey}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.results.length > 0) {
+                // Get the first image result and set it as the src of the img tag
+                cityImage.src = data.results[0].urls.regular;
+                cityImage.alt = `${city} Famous Place Image`;
+                cityImage.style.display = 'block'; // Show the image
+            } else {
+                cityImage.style.display = 'none'; // Hide image if no results
+                alert('No famous place image found for this location.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching image:', error);
+            alert('Failed to fetch famous place image.');
+        });
+}
+
+
+
+
+
 function updateUVIndex(uvIndex) {
     const uvIndexElement = document.querySelector('.uv-index-value');
     const uvRiskLabel = document.querySelector('.uv-risk-label');
     
+    const additionalUVIndexElement = document.querySelector('.additional-info .uv-index-value');
+    const additionalUVRiskLabel = document.querySelector('.additional-info .uv-label');
+
+
+
     uvIndexElement.textContent = uvIndex;
+    additionalUVIndexElement.textContent = uvIndex;
     const uvRisk = getUVRiskLevel(uvIndex);
     uvRiskLabel.textContent = uvRisk;
-
+    additionalUVRiskLabel.textContent = uvRisk;
     updateUVCircle(uvIndex); // Update the semi-circle gauge based on UV index
 }
 
@@ -75,7 +122,6 @@ function updateUVCircle(uvIndex) {
     uvCircle.style.transform = `rotate(${uvAngle}deg)`; // Rotate semi-circle based on UV index
 }
 
-
 function updateWeatherUI(data) {
     const cityElement = document.querySelector(".city");
     const temperatureElement = document.querySelector(".temperature-value");
@@ -87,11 +133,15 @@ function updateWeatherUI(data) {
     const descriptionText = document.querySelector(".description-text");
     const dateElement = document.querySelector(".date");
     
-    // New elements for sunrise and sunset
+    // New elements for sunrise and sunset in both main and additional info section
     const sunriseElement = document.querySelector(".sunrise-time");
     const sunsetElement = document.querySelector(".sunset-time");
     const sunriseIcon = document.querySelector(".sunrise-icon");
     const sunsetIcon = document.querySelector(".sunset-icon");
+
+    // Additional info card for sunrise and sunset
+    const additionalSunriseElement = document.querySelector(".additional-info .sunrise-time");
+    const additionalSunsetElement = document.querySelector(".additional-info .sunset-time");
 
     cityElement.textContent = data.name;
     updateTemperatureDisplay();
@@ -105,10 +155,13 @@ function updateWeatherUI(data) {
     const sunriseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     const sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
+    // Update both the main weather card and additional info card
     sunriseElement.textContent = `Sunrise: ${sunriseTime}`;
     sunsetElement.textContent = `Sunset: ${sunsetTime}`;
+    additionalSunriseElement.textContent = `Sunrise: ${sunriseTime}`;
+    additionalSunsetElement.textContent = `Sunset: ${sunsetTime}`;
 
-    // Set icons for sunrise and sunset
+    // Set icons for sunrise and sunset in both cards
     sunriseIcon.innerHTML = `<i class="material-icons">wb_sunny</i>`;
     sunsetIcon.innerHTML = `<i class="material-icons">nights_stay</i>`;
 
@@ -118,6 +171,7 @@ function updateWeatherUI(data) {
     const descriptionIcon = document.querySelector(".description i");
     descriptionIcon.innerHTML = `<i class="material-icons">${weatherIconName}</i>`;
 }
+
 
 
 function updateForecastUI(daily) {
@@ -130,13 +184,15 @@ function updateForecastUI(daily) {
 
         const date = new Date(day.dt * 1000);
         const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
-        const temperature = `${Math.round(day.temp.day)}°C`;
         const weatherIconName = getWeatherIconName(day.weather[0].main);
+        const temperature = `${Math.round(day.temp.day)}°C`;
+
+
 
         dayElement.innerHTML = `
             <div>${dayName}</div>
-            <div>${temperature}</div>
-            <i class="material-icons">${weatherIconName}</i>
+            <div><i class="material-icons">${weatherIconName}</i>
+</div> ${temperature}
         `;
 
         forecastContainer.appendChild(dayElement);

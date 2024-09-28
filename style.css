@@ -78,12 +78,10 @@ body {
     margin-bottom: 8px;
 }
 
-.sunrise-sunset {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin: 8px 0;
+.info-card sun-info {
+    font-size: 10px;
 }
+
 
 .uv-index-container {
     display: flex;
@@ -127,7 +125,7 @@ body {
 
 .uv-index-value {
     font-size: 32px;
-    font-weight: bold;
+
 }
 
 .uv-risk-label {
@@ -176,8 +174,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    /* Distribute space equally */
     background-color: #ffffff;
+    height: 120px;
+
+    /* Set a fixed height for all cards */
+    box-sizing: border-box;
+    /* Ensure padding is included in height */
 }
 
 .info-card i {
@@ -185,11 +189,24 @@ body {
     margin-bottom: 8px;
 }
 
-.info-card h3,
+.info-card h3 {
+    text-align: center;
+    margin: 0 0 8px 0;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}
+
 .info-card p {
     text-align: center;
     margin: 0;
+    flex-grow: 1;
+    /* Let p take up remaining space if needed */
+    display: flex;
+    align-items: center;
+    /* Center text vertically */
+    justify-content: center;
 }
+
 
 .forecast {
     margin-top: 20px;
@@ -309,14 +326,14 @@ body {
 }
 
 .current-weather {
-    flex: 0 0 40%;
+    flex: 0 0 30%;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-right: 2px;
 }
 
 .additional-info {
-    flex: 0 0 60%;
+    flex: 0 0 70%;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -324,4 +341,58 @@ body {
 .weather-app>div {
     display: flex;
     flex-direction: column;
+}
+
+
+
+
+
+
+.city-image-container {
+    text-align: center;
+    /* Center-align the image */
+    margin-top: 20px;
+    /* Space above the image */
+}
+
+.city-image {
+    width: 100%;
+    /* Make image responsive */
+    height: 50%;
+    /* Set a fixed height to reduce length */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Shadow effect */
+    object-fit: cover;
+    /* Cover the container without distortion */
+}
+
+.current-weather {
+    background-color: #f8f9fa;
+    /* Light background for contrast */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Padding around content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Slight shadow for depth */
+}
+
+
+
+
+.city-image {
+    width: 100%;
+    /* Make the image responsive */
+    height: auto;
+    /* Allow height to adjust automatically */
+    max-height: 50px;
+    /* Limit the height to avoid excessively long images */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Shadow effect */
+    object-fit: cover;
+    /* Cover the container without distortion */
 }
