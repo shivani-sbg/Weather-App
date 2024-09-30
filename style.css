@@ -20,7 +20,7 @@ body {
 }
 
 .weather-app {
-    width: 1300px;
+    width: 1200px;
     height: 100%;
     display: flex;
     justify-content: space-between;
