@@ -7,9 +7,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
 body {
-
     margin: 0;
     padding: 0;
     display: flex;
@@ -24,63 +22,93 @@ body {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 15px 100px;
-    /* Added 100px padding to the left and right */
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background-color: hsl(0, 0%, 90%);
-
+    padding: 50px;
 }
 
 .current-weather {
-    padding: 50px;
     display: flex;
     flex-direction: column;
     width: 30%;
     background-color: #fff;
     justify-content: center;
     align-items: center;
-
     border-radius: 30px 0px 0px 30px;
-}
 
+}
 
 .additional-info {
     display: flex;
-    margin-left: 0px;
     flex-direction: column;
-    background-color: hsl(240 4.8% 95.9%);
-    padding: 50px;
+    background-color: hsl(240, 4.8%, 95.9%);
     width: 70%;
-
     border-radius: 0px 30px 30px 0;
+    padding: 50px;
+    /* Adding padding */
+    box-sizing: border-box;
+    /* Ensures padding doesn’t add to the width */
 }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* Even distribution */
+    width: 100%;
+    /* Ensure row takes full width */
+    margin: 0;
+    /* Reset margin */
+    padding: 0;
+    /* Reset padding */
+}
+
+.col-md-4 {
+    flex: 0 0 calc(33.33% - 20px);
+    /* Make each column 1/3 of the row width, with space for gaps */
+    margin-bottom: 20px;
+    /* Spacing between rows */
+    box-sizing: border-box;
+    /* Ensure correct sizing */
+}
+
+.info-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    /* Fixed height */
+    margin: 0;
+    /* Remove any margins */
+    padding: 10px;
+    /* Add some inner padding */
+    width: 100%;
+    /* Full width of the column */
+    box-sizing: border-box;
+}
+
 
 /* To ensure the layout respects the padding */
 .weather-app>div {
     display: flex;
     flex-direction: column;
-    padding-right: 100px;
-    /* Ensure padding on the right side */
 }
 
-
-
-
-
-
-
-
+/* Info Card Sun Info */
 .info-card sun-info {
     font-size: 10px;
 }
-
 
 .uv-index-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 0;
+    margin: 0;
+    /* Removed margin */
 }
 
 .uv-gauge {
@@ -113,7 +141,6 @@ body {
     bottom: 15px;
     width: 100%;
     text-align: center;
-
 }
 
 .uv-risk-label {
@@ -122,69 +149,62 @@ body {
     color: #555;
 }
 
-.toggle-unit {
+toggle-unit {
     background-color: #3498db;
     border: none;
-    padding: 10px 20px;
+    padding: 0;
+    /* Removed padding */
     border-radius: 10px;
     color: white;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add subtle shadow */
 }
 
-
-.toggle-unit button:hover {
+/* Hover effects */
+toggle-unit:hover {
     background-color: #2980b9;
-}
 
+    transform: translateY(-2px);
+
+}
 
 .temperature-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
 }
-
 
 .info-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-    /* Further reduced gap */
-    margin-top: 10px;
+    gap: 0;
+    /* Removed gap */
 }
-
 
 .info-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     border-color: #007bff;
-    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background-color: #ffffff;
     height: 120px;
-    /* Square shape */
     width: 120px;
-    /* Square shape */
     box-sizing: border-box;
-
 }
 
 .info-card i {
     font-size: 20px;
-    /* Reduced icon size */
-
 }
 
-.info-card h3 {
+.info-card h5 {
     text-align: center;
-
-    /* Adjusted margin */
     flex-shrink: 0;
 }
 
@@ -197,18 +217,6 @@ body {
     justify-content: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 .forecast {
     margin-top: 15px;
 }
@@ -216,92 +224,86 @@ body {
 .forecast-container {
     display: flex;
     justify-content: flex-start;
-    /* Align items to the start */
     flex-wrap: wrap;
-    gap: 5px;
-    /* Reduce the gap between forecast-day elements */
+    gap: 0;
+    /* Removed gap */
 }
 
 .forecast-day {
     text-align: center;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 5px;
+    padding: 0;
+    /* Removed padding */
     font-size: 10px;
     width: calc(13.5% - 4px);
-    /* Reduce the width of each card */
-    margin: 0px;
-    /* Reduce the margin for smaller gaps */
     background-color: #ffffff;
-    border-radius: 10px;
     height: 100px;
-    /* Keep the height increase */
     transition: background-color 0.3s;
 }
-
-.forecast-day {
-    background-color: #fff;
-    border-color: #007bff;
-}
-
-
 
 .forecast-day:hover {
     background-color: #f7f7f7;
 }
 
-
-
-
 .forecast-day .day {
     font-weight: bold;
-    margin-bottom: 2px;
+    margin-bottom: 0;
+    /* Removed margin */
 }
 
 .forecast-day .temp {
-    margin-bottom: 0px;
+    margin-bottom: 0;
+    /* Removed margin */
 }
-
-
 
 
 .search-form {
     display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 350px;
-
+    justify-content: space-between;
+    /* Space between input and button */
+    align-items: center;
+    width: 200px;
+    max-width: 400px;
+    /* Set a maximum width for larger screens */
     border-radius: 8px;
-
-    padding: 15px;
+    margin: 20px auto;
+    /* Center the form */
 }
 
 .city-input {
     flex: 1;
+    /* Allow the input to grow */
     padding: 10px;
-    margin-right: 5px;
-    font-size: 14px;
+    /* Increased padding for better touch usability */
+    font-size: 16px;
+    /* Base font size */
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin-right: 10px;
+    width: 50px;
+    /* Space between input and button */
     transition: border-color 0.3s;
-}
-
-.city-input:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .search-btn {
     padding: 10px 15px;
-    font-size: 14px;
+    /* Consistent padding */
+    font-size: 16px;
+    /* Base font size */
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Focus and hover states */
+.city-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .search-btn:hover {
@@ -313,6 +315,35 @@ body {
     transform: translateY(1px);
 }
 
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .search-form {
+        flex-direction: column;
+        /* Stack elements vertically */
+        max-width: 100%;
+        /* Full width */
+        align-items: stretch;
+        /* Stretch input and button */
+    }
+
+    .city-input {
+        margin: 0 0 10px;
+        /* Remove right margin and add bottom margin */
+        font-size: 14px;
+        /* Smaller font size */
+        padding: 12px;
+        /* Increased padding for better touch usability */
+    }
+
+    .search-btn {
+        width: 100%;
+        /* Make button full width */
+        padding: 12px;
+        /* Increase padding for better touch usability */
+        font-size: 14px;
+        /* Smaller font size */
+    }
+}
 
 
 
@@ -324,50 +355,42 @@ body {
 
 
 
+.city-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+
+.search-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.search-btn:active {
+    transform: translateY(1px);
+}
 
 .city-image-container {
     text-align: center;
-    /* Center-align the image */
-    margin-top: 20px;
-    /* Space above the image */
+    margin-top: 0;
+    /* Removed margin */
 }
 
 .city-image {
     width: 100%;
-    /* Make image responsive */
-    height: 50%;
-    /* Set a fixed height to reduce length */
-    border-radius: 8px;
-    /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    /* Shadow effect */
-    object-fit: cover;
-    /* Cover the container without distortion */
-}
-
-
-
-.city-image {
-    width: 100%;
-    /* Make the image responsive */
     height: auto;
-    /* Allow height to adjust automatically */
     max-height: 50px;
-    /* Limit the height to avoid excessively long images */
     border-radius: 8px;
-    /* Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    /* Shadow effect */
     object-fit: cover;
-    /* Cover the container without distortion */
 }
-
 
 .additional-info {
-    padding: 20px;
-    /* Add padding if necessary */
+    padding: 0;
+    /* Removed padding */
     overflow: hidden;
-    /* Ensure no overflow */
 }
 
 .additional-info .row {
@@ -379,9 +402,288 @@ body {
 
 .info-card {
     width: 100%;
-    /* Make cards take full width of their column */
+    /* Full width of the column */
     box-sizing: border-box;
-    /* Include padding and borders in the element's total width and height */
     max-width: 200px;
-    /* Set a maximum width for cards if needed */
+    /* Set a maximum width for cards */
+}
+
+.forecast-container {
+    display: flex;
+    /* Use flexbox for horizontal layout */
+    justify-content: space-between;
+    /* Evenly distribute space */
+    overflow-x: auto;
+    /* Allow horizontal scrolling if needed */
+    margin: 10px 0;
+    /* Adjust top/bottom margin */
+}
+
+.forecast-day {
+    flex: 0 0 auto;
+    /* Prevent flex items from growing/shrinking */
+    text-align: center;
+    /* Center-align text */
+    margin: 0;
+    /* Remove margin */
+    padding: 0;
+    /* Remove padding */
+}
+
+.forecast-day i {
+    font-size: 30px;
+    /* Adjust icon size */
+}
+
+
+.info-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    border-color: #007bff;
+    padding: 5px;
+    background-color: #ffffff;
+    height: 100px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 20px;
+    /* Added bottom margin for gap between cards */
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.col-md-4 {
+    padding: 0;
+    flex: 0 0 .33%;
+    margin-bottom: 20px;
+    /* Added bottom margin for gap between rows */
+}
+
+/* Style for the two-row layout with no gaps */
+.two-row {
+    margin: 0;
+}
+
+.two-row>div {
+    margin-bottom: 30;
+}
+
+
+
+
+
+
+
+.highlights-title {
+    margin: 0;
+    /* Set margin to zero for the title */
+    padding: 5px 0;
+    /* Add some padding for spacing */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.weather-app {
+    width: 1200px;
+    max-width: 100%;
+    height: auto;
+    /* Change to auto */
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 90%);
+    padding: 50px;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+}
+
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px 0px 0px 30px;
+}
+
+.additional-info {
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(240, 4.8%, 95.9%);
+    width: 70%;
+    border-radius: 0px 30px 30px 0;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+/* Additional styles for responsiveness */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.col-md-4 {
+    flex: 0 0 calc(33.33% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.info-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Search form styles */
+.search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    max-width: 400px;
+    border-radius: 8px;
+    margin: 20px auto;
+}
+
+.city-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: border-color 0.3s;
+}
+
+.search-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+
+/* Styles for current weather and additional info sections */
+.current-weather {
+    width: 30%;
+    /* 30% width for current weather */
+}
+
+.additional-info {
+    width: 70%;
+    /* 70% width for additional info */
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    .weather-app {
+        flex-direction: column;
+        /* Stack elements vertically */
+        align-items: stretch;
+        /* Stretch to full width */
+        padding: 20px;
+        /* Keep padding */
+    }
+
+    .current-weather,
+    .additional-info {
+        width: 100%;
+        /* Full width on smaller screens */
+        display: flex;
+        flex-direction: column;
+        /* Stack items vertically */
+        margin-bottom: 10px;
+        /* Add space between cards */
+    }
+
+    .city-input {
+        width: 100%;
+        /* Ensure full width */
+        margin: 0 0 10px;
+        /* Adjust margin */
+        font-size: 15px;
+        /* Adjust font size */
+        padding: 10px;
+        /* Adjust padding for better touch targets */
+        margin-top: 20px;
+        /* Adjust top margin */
+    }
+
+    .search-btn {
+        display: none;
+        /* Hide the search button */
+    }
+
+    .info-card p,
+    h5,
+    i {
+        width: 100%;
+        /* Full width for text */
+        font-size: 12px;
+        /* Adjust font size for readability */
+        padding: 5px;
+        /* Adjust padding */
+    }
 }
