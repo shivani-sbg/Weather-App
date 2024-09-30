@@ -190,6 +190,10 @@ function updateForecastUI(daily) {
 
 
         dayElement.innerHTML = `
+
+
+
+        
             <div>${dayName}</div>
             <div><i class="material-icons">${weatherIconName}</i>
 </div> ${temperature}
