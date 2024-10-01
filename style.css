@@ -149,10 +149,10 @@ body {
     color: #555;
 }
 
-toggle-unit {
+.toggle-unit {
     background-color: #3498db;
     border: none;
-    padding: 0;
+    padding: 05px;
     /* Removed padding */
     border-radius: 10px;
     color: white;
@@ -636,54 +636,190 @@ body {
     /* 70% width for additional info */
 }
 
+
+
+
+
+
+.additional-info {
+    padding: 35px;
+}
+
+@media screen and (max-width: 786px) {
+    .additional-info {
+        padding: 25px;
+    }
+}
+
+
 /* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
     .weather-app {
-        flex-direction: column;
-        /* Stack elements vertically */
-        align-items: stretch;
-        /* Stretch to full width */
+        flex-direction: row;
+        flex-wrap: nowrap;
         padding: 20px;
-        /* Keep padding */
+        max-width: 100%;
+        height: auto;
+    }
+
+    .current-weather {
+        width: 30%;
+    }
+
+    .additional-info {
+        width: 70%;
+        padding: 20px;
     }
 
     .current-weather,
     .additional-info {
-        width: 100%;
-        /* Full width on smaller screens */
-        display: flex;
+
         flex-direction: column;
-        /* Stack items vertically */
-        margin-bottom: 10px;
-        /* Add space between cards */
+        margin: 0;
+    }
+
+    .additional-info {
+        padding: 20px;
     }
 
     .city-input {
         width: 100%;
-        /* Ensure full width */
-        margin: 0 0 10px;
-        /* Adjust margin */
-        font-size: 15px;
-        /* Adjust font size */
+        margin: 20px 0;
+        font-size: 10px;
         padding: 10px;
-        /* Adjust padding for better touch targets */
+    }
+
+    .search-form {
+        width: 70%;
+        max-width: 100%;
         margin-top: 20px;
-        /* Adjust top margin */
+    }
+
+    .info-card {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
     }
 
     .search-btn {
         display: none;
-        /* Hide the search button */
     }
 
-    .info-card p,
-    h5,
-    i {
-        width: 100%;
-        /* Full width for text */
-        font-size: 12px;
-        /* Adjust font size for readability */
+
+    .toggle-unit {
+        background-color: #3498db;
+        border: none;
+        padding: 05px;
+        /* Removed padding */
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        font-size: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Add subtle shadow */
+    }
+
+
+    .forecast-container {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 4px;
+        /* Removed gap */
+    }
+
+    .forecast-day {
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
         padding: 5px;
-        /* Adjust padding */
+        /* Removed padding */
+        font-size: 8px;
+        width: calc(14% - 3px);
+        background-color: #ffffff;
+        height: 85px;
+        transition: background-color 0.3s;
+    }
+
+
+    .additional-info {
+        display: flex;
+        flex-direction: column;
+        background-color: hsl(240, 4.8%, 95.9%);
+        width: 70%;
+        border-radius: 0px 30px 30px 0;
+        padding: 20px;
+        /* Adding padding */
+        box-sizing: border-box;
+        /* Ensures padding doesn’t add to the width */
+    }
+
+
+
+
+    .info-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        /* Removed gap */
+    }
+
+    .info-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        border-color: #007bff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffffff;
+        height: 100px;
+        width: 90px;
+        box-sizing: border-box;
+    }
+
+    .info-card i {
+        font-size: 15px;
+        margin-top: 8px;
+    }
+
+    .info-card h5 {
+        text-align: center;
+        flex-shrink: 0;
+        font-size: x-small;
+    }
+
+    .info-card p {
+        text-align: center;
+        font-size: x-small;
+        margin: 0;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sunrise-time,
+    .sunset-time {
+        font-size: xx-small;
+    }
+
+
+
+
+
+
+
+}
+
+/* Ensuring default layout for larger screens */
+@media (min-width: 769px) {
+    .current-weather {
+        width: 30%;
+    }
+
+    .additional-info {
+        width: 70%;
     }
 }
