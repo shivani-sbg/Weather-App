@@ -641,16 +641,6 @@ body {
 
 
 
-.additional-info {
-    padding: 35px;
-}
-
-@media screen and (max-width: 786px) {
-    .additional-info {
-        padding: 25px;
-    }
-}
-
 
 /* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
@@ -687,6 +677,11 @@ body {
         margin: 20px 0;
         font-size: 10px;
         padding: 10px;
+    }
+
+    .city,
+    .date {
+        font-size: medium;
     }
 
     .search-form {
@@ -804,12 +799,6 @@ body {
     .sunset-time {
         font-size: xx-small;
     }
-
-
-
-
-
-
 
 }
 

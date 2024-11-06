@@ -1,4 +1,6 @@
 
+
+
 const apiKey = '64f60853740a1ee3ba20d0fb595c97d5'; // Replace with your OpenWeatherMap API key
 
 let isCelsius = true;
@@ -23,16 +25,17 @@ async function fetchWeatherData(city) {
         currentPressure = data.main.pressure;
 
         updateWeatherUI(data);
-        fetchForecast(data.coord.lat, data.coord.lon); // Fetch forecast using latitude and longitude
+        fetchForecast(data.coord.lat, data.coord.lon, apiKey); // Fetch forecast using latitude and longitude
     } catch (error) {
         console.error(error);
     }
 }
 
-async function fetchForecast(lat, lon) {
+async function fetchForecast(lat, lon, key) {
+    const cnt = 7
     try {
         const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=${apiKey}`
+            `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&cnt=7&appid=${key}`
         );
 
         if (!response.ok) {
@@ -40,10 +43,10 @@ async function fetchForecast(lat, lon) {
         }
         const forecastData = await response.json();
 
-        const uvIndex = forecastData.daily[0].uvi; // Get UV index for the current day
+        // const uvIndex = forecastData.daily[0].uvi; // Get UV index for the current day
 
-        updateForecastUI(forecastData.daily);
-        updateUVIndex(uvIndex); // Call function to update UV index gauge
+        updateForecastUI(forecastData.list);
+        // updateUVIndex(uvIndex); // Call function to update UV index gauge
     } catch (error) {
         console.error(error);
     }
@@ -93,7 +96,7 @@ function fetchFamousPlaceImage(city) {
 function updateUVIndex(uvIndex) {
     const uvIndexElement = document.querySelector('.uv-index-value');
     const uvRiskLabel = document.querySelector('.uv-risk-label');
-    
+
     const additionalUVIndexElement = document.querySelector('.additional-info .uv-index-value');
     const additionalUVRiskLabel = document.querySelector('.additional-info .uv-label');
 
@@ -132,7 +135,7 @@ function updateWeatherUI(data) {
     const pressureElement = document.querySelector(".pressure-value");
     const descriptionText = document.querySelector(".description-text");
     const dateElement = document.querySelector(".date");
-    
+
     // New elements for sunrise and sunset in both main and additional info section
     const sunriseElement = document.querySelector(".sunrise-time");
     const sunsetElement = document.querySelector(".sunset-time");
@@ -175,28 +178,27 @@ function updateWeatherUI(data) {
 
 
 function updateForecastUI(daily) {
+    console.log(daily, "daalll");
+
     const forecastContainer = document.querySelector(".forecast-container");
     forecastContainer.innerHTML = ''; // Clear previous data
 
-    daily.slice(1, 8).forEach(day => { // Skip the current day
+    daily.forEach(day => { // Skip the current day
+        console.log(day, "temmm");
         const dayElement = document.createElement("div");
         dayElement.classList.add("forecast-day");
 
-        const date = new Date(day.dt * 1000);
-        const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+        const date = new Date(day.dt_txt);
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayName = daysOfWeek[date.getDay()];
         const weatherIconName = getWeatherIconName(day.weather[0].main);
-        const temperature = `${Math.round(day.temp.day)}°C`;
-
-
+        const temperature = `${Math.round(day.main.temp)}°C`;
 
         dayElement.innerHTML = `
-
-
-
-        
-            <div>${dayName}</div>
-            <div><i class="material-icons">${weatherIconName}</i>
-</div> ${temperature}
+         <div>${dayName}</div>
+         <div>
+         <i class="material-icons">${weatherIconName}</i>
+         </div> ${temperature}
         `;
 
         forecastContainer.appendChild(dayElement);
@@ -259,7 +261,7 @@ document.querySelector(".search-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
     const inputElement = document.querySelector(".city-input");
-    const dropdownElement = document.querySelector(".city-dropdown");
+    const dropdownElement = document.querySelector(".city-list");
     const city = inputElement.value || dropdownElement.value;
 
     if (city !== "") {
@@ -269,9 +271,15 @@ document.querySelector(".search-form").addEventListener("submit", function (e) {
     }
 });
 
-document.querySelector(".city-dropdown").addEventListener("change", function () {
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.querySelector(".city-list");
     const inputElement = document.querySelector(".city-input");
-    inputElement.value = this.value;
+
+    if (dropdown && inputElement) {
+        dropdown.addEventListener("change", function () {
+            inputElement.value = this.value;
+        });
+    }
 });
 
 function getWeatherIconName(weatherCondition) {
@@ -292,3 +300,8 @@ function getWeatherIconName(weatherCondition) {
 
     return iconMap[weatherCondition] || "help";
 }
+
+
+
+
+
