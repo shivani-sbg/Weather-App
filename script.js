@@ -91,16 +91,12 @@ function fetchFamousPlaceImage(city) {
 
 
 
-
-
 function updateUVIndex(uvIndex) {
     const uvIndexElement = document.querySelector('.uv-index-value');
     const uvRiskLabel = document.querySelector('.uv-risk-label');
 
     const additionalUVIndexElement = document.querySelector('.additional-info .uv-index-value');
     const additionalUVRiskLabel = document.querySelector('.additional-info .uv-label');
-
-
 
     uvIndexElement.textContent = uvIndex;
     additionalUVIndexElement.textContent = uvIndex;
@@ -117,7 +113,6 @@ function getUVRiskLevel(uvIndex) {
     if (uvIndex < 11) return 'Very High';
     return 'Extreme';
 }
-
 // Update the semi-circle UV gauge based on the index value
 function updateUVCircle(uvIndex) {
     const uvCircle = document.querySelector('.uv-circle');
@@ -177,33 +172,69 @@ function updateWeatherUI(data) {
 
 
 
+// function updateForecastUI(daily) {
+//     console.log(daily, "daalll");
+
+//     const forecastContainer = document.querySelector(".forecast-container");
+//     forecastContainer.innerHTML = ''; // Clear previous data
+
+//     daily.forEach(day => { // Skip the current day
+//         console.log(day, "temmm");
+//         const dayElement = document.createElement("div");
+//         dayElement.classList.add("forecast-day");
+
+//         const date = new Date(day.dt_txt * 1000);
+//         const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//         const dayName = daysOfWeek[date.getDay()];
+//         const weatherIconName = getWeatherIconName(day.weather[0].main);
+//         const temperature = `${Math.round(day.main.temp)}°C`;
+
+//         dayElement.innerHTML = `
+//          <div>${dayName}</div>
+//          <div>
+//          <i class="material-icons">${weatherIconName}</i>
+//          </div> ${temperature}
+//         `;
+
+//         forecastContainer.appendChild(dayElement);
+//     });
+// }
+
 function updateForecastUI(daily) {
-    console.log(daily, "daalll");
+    console.log(daily, "daily data");
 
     const forecastContainer = document.querySelector(".forecast-container");
     forecastContainer.innerHTML = ''; // Clear previous data
 
-    daily.forEach(day => { // Skip the current day
-        console.log(day, "temmm");
+    // Get the current day of the week (0 = Sunday, 1 = Monday, etc.)
+    const today = new Date().getDay(); // Current day index
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    daily.forEach((day, index) => {
         const dayElement = document.createElement("div");
         dayElement.classList.add("forecast-day");
 
-        const date = new Date(day.dt_txt);
-        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const dayName = daysOfWeek[date.getDay()];
-        const weatherIconName = getWeatherIconName(day.weather[0].main);
-        const temperature = `${Math.round(day.main.temp)}°C`;
+        // Calculate the day of the week for each forecast entry
+        const dayIndex = (today + index) % 7; // Move through days of the week dynamically
+        const dayName = daysOfWeek[dayIndex]; // Get the correct weekday name
 
+        const weatherIconName = getWeatherIconName(day.weather[0].main); // Get icon based on weather condition
+        const temperature = `${Math.round(day.main.temp)}°C`; // Use daily temperature
+
+        // Render the day name, icon, and temperature
         dayElement.innerHTML = `
-         <div>${dayName}</div>
-         <div>
-         <i class="material-icons">${weatherIconName}</i>
-         </div> ${temperature}
+            <div>${dayName}</div>
+            <div>
+                <i class="material-icons">${weatherIconName}</i>
+            </div> 
+            ${temperature}
         `;
 
         forecastContainer.appendChild(dayElement);
     });
 }
+
+
 
 function updateTemperatureDisplay() {
     const temperatureElement = document.querySelector(".temperature-value");
