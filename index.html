@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -16,8 +25,12 @@
 
     <div class="weather-app">
         <div class="current-weather">
-            <form class="search-form" style="margin-top: -80px;">
-                <input class="city-input" type="text" placeholder="Enter City" list="city-list" />
+            <form class="search-form" style="margin-top: -150px; font-family: Quicksand;">
+                <button class="search-btn" type="submit">
+                    <i class="material-icons">search</i>
+                </button>
+                <input class="city-input" style="font-family: Quicksand;" placeholder="Search for places..."
+                    list="city-list" />
                 <datalist id="city-list">
                     <option value="Indore"></option>
                     <option value="Bhopal"></option>
@@ -43,149 +56,186 @@
                     <option value="France"></option>
                     <option value="Greenland"></option>
                 </datalist>
-                <button class="search-btn" type="submit">
-                    <i class="material-icons">search</i>
-                </button>
+
             </form>
-
-            <div class="city-date-section">
-                <h2 class="city">CITY</h2>
-                <p class="date">DATE</p>
-            </div>
-
             <div class="temperature-info">
-                <div class="description">
+                <div class="description" style="padding-top: 20px;">
+                    <button
+                        style="background-color: white; border: none; padding: 40px; display: flex; justify-content: center; align-items: center; width: 100px; height: 100px;">
+                        <i class="fa fa-cloud-sun-rain" style="color: #FFD43B; font-size: 120px;"></i>
+                    </button>
 
-                    <i class="material-icons" style="justify-content: center; align-items: center;">sunny</i>
-                    <h6 class="description-text">Temp-Description</h6>
-
-                </div>
-                <div class="temp">
-                    <span class="temperature-value"></span>°<span class="temp-unit">C</span>
-                </div>
-                <div class="unit-toggle">
-                    <button class="toggle-unit">Switch to °F</button>
                 </div>
             </div>
+
+
+
             <br>
-            <div class="city-image-container">
-                <img id="city-image" src="" alt="City Image" style="width: 120px; height: 120px; display: none;" />
+
+            <div class="temp">
+                <span class="temperature-value"></span>
+                <p class="temp-unit" style="text-align: left;"><span style="font-family:roboto;">12<sup>°c</sup></span>
+                </p>
             </div>
+            <div class="city-date-section" style="margin-right: 70px;">
+                <p><span class="day">Monday,</span> <span class="time" style="color: #a8a7a1;">16:00</span></p>
+            </div>
+            <div class="separator-line"></div>
+            <br>
+            <div class="description-text" style="font-size: 13px;">
+                <button class="icon-button" style="border: none; background-color: white;"><i class="fa-solid fa-cloud"
+                        style="color: #acb1b9;"></i></button>
+                Mostly Cloudy
+            </div>
+
+            <div class="rain" style="font-size: 13px;">
+                <button class="icon-button" style="border: none; background-color: white;"><i
+                        class="fa-solid fa-cloud-showers-heavy" style="color: #1950ae;"></i></button>
+                Rain
+            </div>
+
+
         </div>
 
-        <div class="additional-info" style="padding: 35px;">
+        <div class="additional-info" style="padding: 55px;   ">
             <div class="forecast">
-                <p>7-Day Weather Forecast</p>
-                <div class="forecast-container">
-                    <div class="forecast-day">
-                        <i class="material-icons">wb_sunny</i>
-                        <div class="day">Mon</div>
-                        <div class="temp">°C</div>
-                        <div class="description">Sunny</div>
+                <p style="
+                    margin-top: -30px; font-weight: 700;">Week</p>
+                <div class="unit-toggle-container" style="margin-top: -40px;  margin-bottom:30px ;">
+
+                    <span class="unit-toggle1"
+                        style="background-color: black; border-radius:25px; color: white;">°C</span>
+                    <span class="unit-toggle2"
+                        style="background-color: white; border-radius:25px; color: black;">°F</span>
+                </div>
+
+                <div class="forecast-container" style="font-family: Quicksand;">
+                    <div class="forecast-day" style="font-family: Quicksand;">
+                        <div class="day" style="margin-top:10px;">Mon</div>
+                        <i class="fa-sharp fa-solid fa-circle" style="color: #FFD43B;"></i>
+                        <div class="temp">15°-3°</div>
+
                     </div>
                     <div class="forecast-day">
-                        <i class="material-icons">cloud</i>
-                        <div class="day">Tues</div>
-                        <div class="temp">°C</div>
-                        <div class="description">Cloudy</div>
+                        <div class="day" style="margin-top:10px;">Tues</div>
+                        <i class="fa fa-cloud-sun-rain" style="color: #FFD43B;"></i>
+
+                        <div class="temp">12°-7°</div>
+
                     </div>
                     <div class="forecast-day">
-                        <i class="material-icons">grain</i>
-                        <div class="day">Wed</div>
-                        <div class="temp">°C</div>
-                        <div class="description">Rainy</div>
+                        <div class="day" style="margin-top:10px;">Wed</div>
+                        <i class="fa-solid fa-cloud-rain" style="color: #e0dfd9;"></i>
+                        <div class="temp">9°-7°</div>
                     </div>
                     <div class="forecast-day">
-                        <i class="material-icons">wb_sunny</i>
-                        <div class="day">Thur</div>
-                        <div class="temp">°C</div>
-                        <div class="description">Sunny</div>
+                        <div class="day" style="margin-top:10px;">Thur</div>
+                        <i class="fa-solid fa-cloud-showers-heavy" style="color: #e0dfd9;"></i>
+
+                        <div class="temp">8°-1°</div>
                     </div>
                     <div class="forecast-day">
-                        <i class="material-icons">cloud</i>
-                        <div class="day">Fri</div>
-                        <div class="temp">°C</div>
-                        <div class="description">Cloudy</div>
+                        <div class="day" style="margin-top:10px;">Fri</div>
+
+                        <i class="fa-sharp fa-solid fa-star" style="color: #e0dfd9;"></i>
+                        <div class="temp">5°-2°</div>
                     </div>
                     <div class="forecast-day">
-                        <i class="material-icons">grain</i>
-                        <div class="day">Sat</div>
-                        <div class="temp">°C</div>
-                        <div class="description">Rainy</div>
+                        <div class="day" style="margin-top:10px;">Sat</div>
+
+                        <i class="fa-solid fa-cloud-sun" style="color: #FFD43B;"></i>
+                        <div class="temp">4°-4°</div>
                     </div>
                     <div class="forecast-day">
-                        <i class="material-icons">grain</i>
-                        <div class="day">Sun</div>
-                        <div class="temp">°C</div>
-                        <div class="description">Umbrella</div>
+
+                        <div class="day" style="margin-top:10px;">Sun</div>
+                        <i class="fa-sharp fa-solid fa-circle" style="color: #FFD43B;"></i>
+
+                        <div class="temp">3°-3°</div>
                     </div>
                 </div>
             </div>
-
-            <p class="highlights-title">Today's Highlights</p>
+            <br><br>
+            <p class="highlights-title" style="font-weight: 700;">Today's Highlights</p><br>
             <div class="row two-row">
                 <div class="col-md-4">
+
                     <div class="info-card humidity-info">
-                        <i class="material-icons">water_drop</i>
-                        <div>
-                            <h5 class="humidity">0%</h5>
-                            <p class="humidity-label">Humidity</p>
+                        <p class="humidity-label">Humidity</p>
+                        <div class="humidity-center">
+                            <span class="humidity">12%</span>
+                            <i class="fa-solid fa-toggle-on fa-rotate-270 toggle-icon"></i>
                         </div>
                     </div>
+
                 </div>
                 <div class="col-md-4">
                     <div class="info-card visibility-info">
-                        <i class="material-icons">visibility</i>
-                        <div>
-                            <h5 class="visibility-distance">0</h5>
-                            <p class="visibility-label">Visibility (KM)</p>
-                        </div>
+                        <p class="visibility-label" style="color: #a8a7a1; margin-right: 90px; margin-top: -10px;">
+                            Visibility </p>
+
+                        <p class="visibility-distance" style="font-size: 30px;">5.2km/h</p>
+                        <h5 class="visibility-distance1" style="font-size: 13px; margin-right: 100px;">Average</h5>
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="info-card wind-info">
-                        <i class="material-icons">air</i>
-                        <div>
-                            <h5 class="wind-speed">0</h5>
-                            <p class="wind-label">Wind (KM/H)</p>
+                        <p class="wind-label" style="color: #a8a7a1; margin-right: 60px; margin-top: -20px;">Wind Status
+                        </p>
+                        <h5 class="wind-speed" style="font-size: 30px;">7.70km/h</h5>
+                        <div> <span> <i class="fa-solid fa-location-dot fa-rotate-by"
+                                    style="color: #165cd4; --fa-rotate-angle: 50deg; font-size: small;"></i></span>
+                            <span style="font-size: 13px; margin-right: 100px;"> WSW</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="info-card sun-info">
-                        <i class="material-icons">wb_twilight</i>
-                        <div>
-                            <p class="sunrise-time">Sunrise time <i class="material-icons sunrise-icon">wb_sunny</i></p>
-                            <p class="sunset-time">Sunset time <i class="material-icons sunset-icon">nights_stay</i>
-                            </p>
-                        </div>
+                        <p style="color: #a8a7a1; margin-right: 0px; margin-top: -5px;">Sunrise & Sunset</p>
+
+
+                        <p class="sunrise-time" style="gap: 5px;"><i class="fa-solid fa-circle-arrow-up"
+                                style="color: #FFD43B;">
+
+                            </i> 6:35AM
+                        </p>
+                        <p class="sunset-time" style="gap: 5px;"><i class="fa-solid fa-circle-arrow-up fa-rotate-180"
+                                style="color: #FFD43B;"></i> 5:42PM
+                        </p>
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="info-card uv-index-info">
-                        <i class="material-icons">wb_sunny</i>
+                        <p style="color: #a8a7a1; margin-right: 90px; margin-top: 0px;">UV Index</p>
+                        <div class="uv-circle-container"><i class="fa-solid fa-chart-pie" style="color: #FFD43B;"></i>
+                            <div class="uv-circle"></div>
+                        </div>
+
                         <div>
                             <h5 class="uv-index-value">0</h5>
-                            <p class="uv-label">UV Index</p>
-                            <p class="uv-risk-label">Low</p>
+
+                            <p class="uv-risk-label"></p>
                         </div>
+                        <!-- Semi-circle Gauge for UV Index -->
 
                     </div>
                 </div>
+
+
                 <div class="col-md-4">
                     <div class="info-card pressure-info">
-                        <i class="material-icons">compress</i>
-                        <div>
-                            <h5 class="pressure-value">0</h5>
-                            <p class="pressure-label">Pressure (hPa)</p>
-                        </div>
+                        <p class="pressure-label" style="color: #a8a7a1; margin-right: 90px; margin-top: 15px;">
+                            Pressure </p>
+                        <i class="material-icons"
+                            style="font-size: 50px; margin-bottom: 20px; color: #1d60d4;">compress</i>
+
+                        <h5 class="pressure-value">0</h5>
+
                     </div>
                 </div>
             </div>
-
-
-
-
 
 
 
@@ -198,5 +248,3 @@
     </div>
     <script src="script.js"></script>
 </body>
-
-</html>
