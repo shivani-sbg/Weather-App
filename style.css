@@ -631,6 +631,9 @@ body {
     /* Removes default outline */
 }
 
+.search-btn :hover {
+    border: none;
+}
 
 
 .search-btn {
@@ -654,6 +657,7 @@ body {
 .search-btn i {
     font-size: 20px;
     margin-right: 8px;
+    color: #5d31ff;
     /* Adjust the size of the icon inside the button */
 }
 
