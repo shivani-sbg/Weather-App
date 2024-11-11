@@ -607,7 +607,7 @@ body {
 .city-input {
     font-size: 12px;
     font-weight: 550;
-    color: black;
+    color: #5d31ff;
     font-feature-settings: 'ss01';
     border: none;
     /* No border by default */
