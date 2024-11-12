@@ -455,6 +455,21 @@ i {
 
 
 
+/* Specifically style the temperature and other sections */
+.temperature-info .temperature-value,
+.city-date-section,
+.description-text,
+.rain,
+.temp,
+.forecast-day,
+.forecast-container,
+.unit-toggle-container,
+.info-card,
+.highlights-title,
+.col-md-4 {
+    font-family: 'Quicksand', sans-serif;
+    /* Ensures that Quicksand is used everywhere */
+}
 
 
 
@@ -561,105 +576,103 @@ body {
 }
 
 
-/* Search form styles */
+
 .search-form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
-    max-width: 400px;
-    border-color: white;
-    color: black;
-    margin: 20px auto;
-
-    font-weight: 400;
-
-    line-height: 28px;
-
-    font-feature-settings: 'ss01';
+    position: relative;
+    width: 180px;
+    margin-bottom: 70px;
+    /* Box shadow for form container */
 }
 
+/* Style for the input field */
 .city-input {
-    font-size: 12px;
-    font-weight: 550;
-
-    color: #5d31ff;
-
-    font-feature-settings: 'ss01';
-    border: none;
-    /* No border */
-    margin-right: 25px;
-    padding-right: 8px;
-
-    /* Adjusted margin-top */
-
+    width: 100%;
+    padding: 6px;
+    padding-right: 30px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    border: 2px solid white;
+    /* Default border color */
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
+    transition: border-color 0.3s ease;
+    /* Smooth transition for border color change */
 }
 
-.city-input:hover {
-    box-shadow: 0 0 0 2px #5d31ff;
-    border-radius: 5px;
-    border: 1px;
-    /* Green border effect using box-shadow */
-}
-
-
-
-.city-input {
-    font-size: 12px;
-    font-weight: 550;
-    color: #5d31ff;
-    font-feature-settings: 'ss01';
-    border: none;
-    /* No border by default */
-    margin-right: 25px;
-    padding-right: 8px;
-    transition: box-shadow 0.3s ease, border 0.3s ease;
-    /* Smooth transition for box-shadow and border */
-}
-
-/* Blue border effect on hover */
-.city-input:hover {
-    box-shadow: 0 0 0 1px #5d31ff;
-    border-radius: 5px;
-}
-
-/* Red border when the input is focused (clicked) */
+/* Change the border color to red when the input field is focused */
 .city-input:focus {
-    box-shadow: 0 0 0 1px #5d31ff;
-    border-radius: 5px;
+    border-color: #ccc;
+    /* Set border color to red on focus */
     outline: none;
-    /* Removes default outline */
+    /* Remove the default focus outline */
 }
 
-.search-btn :hover {
-    border: none;
-}
-
-
+/* Style for the search button */
 .search-btn {
-
-    /* Adds 10px gap to the right of the button */
-    font-size: 20px;
-
-    /* Adjusted margin-top */
-
-    /* Top padding */
-
-    /* Adjust the font size to make the icon larger */
-    background-color: white;
+    background: none;
     border: none;
     cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+    color: #0c59e9;
+    position: absolute;
+    left: -35px;
+    /* Move the button outside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
 
+/* Hover effect for the search button */
+.search-btn:hover {
+    color: #0c59e9;
+}
+
+/* Dropdown styling */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background-color: white;
+    border: 2px solid #ccc;
+    font-size: small;
+    border-radius: 8px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 1;
+}
+
+/* Style the list inside the dropdown */
+.dropdown ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Style each list item */
+.dropdown ul li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown ul li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Display dropdown when input is focused */
+.search-form.active .dropdown {
+    display: block;
 }
 
 
 
-.search-btn i {
-    font-size: 20px;
-    margin-right: 8px;
-    color: #5d31ff;
-    /* Adjust the size of the icon inside the button */
-}
+
+
+
 
 .temp-unit {
     font-size: 70px;

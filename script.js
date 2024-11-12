@@ -159,3 +159,42 @@ searchForm.addEventListener('submit', (e) => {
     }
 
 });
+
+document.querySelectorAll('#city-list li').forEach((item) => {
+    item.addEventListener('click', () => {
+        const city = item.textContent;
+        cityInput.value = city; // Set the city input value to the selected city
+        getWeatherData(city); // Fetch weather data for the selected city
+    });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const input = document.querySelector(".city-input");
+    const dropdown = document.querySelector(".dropdown");
+    const form = document.querySelector(".search-form");
+    const listItems = document.querySelectorAll("#city-list li");
+
+    // Show dropdown when input is focused
+    input.addEventListener("focus", () => {
+        form.classList.add("active");
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", (event) => {
+        if (!form.contains(event.target)) {
+            form.classList.remove("active");
+        }
+    });
+
+    // Handle item click to populate input and hide dropdown
+    listItems.forEach(item => {
+        item.addEventListener("click", () => {
+            input.value = item.textContent;
+            form.classList.remove("active");
+        });
+    });
+});
+
