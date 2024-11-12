@@ -619,13 +619,13 @@ body {
 
 /* Blue border effect on hover */
 .city-input:hover {
-    box-shadow: 0 0 0 2px #5d31ff;
+    box-shadow: 0 0 0 1px #5d31ff;
     border-radius: 5px;
 }
 
 /* Red border when the input is focused (clicked) */
 .city-input:focus {
-    box-shadow: 0 0 0 2px #5d31ff;
+    box-shadow: 0 0 0 1px #5d31ff;
     border-radius: 5px;
     outline: none;
     /* Removes default outline */
